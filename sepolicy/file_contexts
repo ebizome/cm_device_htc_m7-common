@@ -47,3 +47,10 @@
 /sys/devices/virtual/graphics/fb1/hpd                  -- u:object_r:surfaceflinger_sysfs:s0
 /sys/devices/virtual/graphics/fb1/product_description  -- u:object_r:surfaceflinger_sysfs:s0
 /sys/devices/virtual/graphics/fb1/vendor_name          -- u:object_r:surfaceflinger_sysfs:s0
+
+# FeliCa
+/dev/felica(.*)			u:object_r:felica_device:s0
+
+# SNFC		
+/dev/ttyHS1			u:object_r:felica_device:s0
+/dev/snfc(.*)			u:object_r:felica_device:s0

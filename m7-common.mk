@@ -85,6 +85,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # NFC
+ifeq ($(TARGET_DEVICE),m7wlj)
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcSony \
+    Tag
+else
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     libnfc \
@@ -94,6 +100,7 @@ PRODUCT_PACKAGES += \
     Nfc \
     nfc.msm8960 \
     Tag
+endif
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
