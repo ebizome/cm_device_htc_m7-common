@@ -17,7 +17,22 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "HTC One"
+#include <cutils/properties.h>
+#include <string.h>
+
+static inline const char* getBTDefaultName()
+{
+    char device[PROPERTY_VALUE_MAX];
+    property_get("ro.product.device", device, "");
+
+    if (!strcmp("m7wlj", device)) {
+        return "HTC J One";
+    }
+
+    return "HTC One";
+}
+
+#define BTM_DEF_LOCAL_NAME getBTDefaultName()
 #define BTA_DISABLE_DELAY 1000 /* in milliseconds */
 #define I2SPCM_SLAVE_BRCM TRUE
 #endif
